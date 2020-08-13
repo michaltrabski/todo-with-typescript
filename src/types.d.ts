@@ -3,6 +3,9 @@ type Todo = {
   complete: boolean;
 };
 
+type ToogleTodo = (a: Todo) => void;
+
 interface TodoListItemProps {
   todo: Todo;
+  toogleTodo: ToogleTodo;
 }
