@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoListItem from "./components/TodoListItem";
+import AddTodo from "./components/AddTodo";
 
 const itinialTodos: Array<Todo> = [
   { text: "xxxxxxxx", complete: true },
@@ -19,15 +20,22 @@ const App: React.FC = () => {
       }
       return todo;
     });
-
     setTodos(newTodos);
+  };
+
+  const addTodo = (todo: Todo) => {
+    setTodos([...todos, todo]);
   };
 
   return (
     <div>
-      {todos.map((todo) => (
-        <TodoListItem todo={todo} toogleTodo={toogleTodo} />
-      ))}
+      <AddTodo addTodo={addTodo} />
+
+      <div>
+        {todos.map((todo) => (
+          <TodoListItem todo={todo} toogleTodo={toogleTodo} />
+        ))}
+      </div>
     </div>
   );
 };

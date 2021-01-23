@@ -9,3 +9,7 @@ interface TodoListItemProps {
   todo: Todo;
   toogleTodo: ToogleTodo;
 }
+
+interface AddTodoProps {
+  addTodo: (a: Todo) => void;
+}
